@@ -1,0 +1,212 @@
+li {list-style: none;}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav {
+    background-color: white;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 64px;
+    width: 100%;
+}
+
+.navbar_logo {
+    padding: 24px;
+}
+
+.navbar_menu {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+}
+
+.navbar_menu li {
+    padding: 20px 16px;
+    font-weight: 600;
+}
+
+.greybar {
+    color: #c3c3c3;
+    margin: 0px 8px;
+}
+
+.login {
+    margin-left: auto;
+    padding: 20px 30px;
+    margin-right: 10px;
+}
+
+.loginBtn {
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 600;
+    color: #737373;
+}
+
+.slide {
+    background-color: #eff5f9;
+    margin-top: 50px;
+    width: 100%;
+    height: 400px;
+    object-fit: scale-down;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    padding: 0px 80px;
+}
+
+#orange {color: #ff7720;}
+
+.titleBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 64.5px;
+}
+
+.title {
+    display:flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.subtitle {
+    display:flex;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.maintitle {
+    display:flex;
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0px;
+}
+
+.detail {
+    display:flex;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.bootcampBox {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.bootcamp{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 280px;
+    max-width: 330px;
+}
+
+.bootcamp_img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    padding-bottom: 16px;
+}
+
+.state_recruit {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    font-size: 14px;
+    border: 1px solid #1d4ed8;
+    border-radius: 5px;
+    color: #1d4ed8;
+    padding: 4px 8px;
+}
+
+.state_alarm {
+    display: flex;
+    justify-content: center;
+    width: 90px;
+    font-size: 14px;
+    border: 1px solid #059669;
+    border-radius: 5px;
+    color: #059669;
+    padding: 4px 8px;
+}
+
+.bootcamp_name {
+    margin: 16px 0px 8px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.bootcamp_info {
+    font-size: 18px;
+}
+
+.bootcamp_due {
+    padding: 16px 0px 0px;
+    color: #a3a3a3;
+}
+
+.scheduleBox {
+    margin: 80px 0px 0px;
+}
+
+.selectBox {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    border-bottom: 0.8px solid #c3c3c3;
+    margin: 32px 0px
+}
+
+.select_class {
+    font-size: 20px;
+    background-color: white;
+    color: #ff7720;
+    border: none;
+    border-bottom: 1.6px solid #ff7720;
+    margin-right: 16px;
+}
+
+.select_month {
+    font-size: 20px;
+    background-color: white;
+    border: none;
+}
+
+.select_text {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.optionBox {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    gap: 10px;
+    margin-top: 24px;
+    border: 0.8px solid #c3c3c3;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.option {
+    font-size: 18px;
+    background-color: white;
+    border: 0.8px solid #c3c3c3;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
