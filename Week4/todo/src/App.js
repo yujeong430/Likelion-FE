@@ -19,6 +19,7 @@ const TodoContainer = styled.div`
   @media (max-width: 600px) {
     width: 400px;
     min-height: 800px;
+    background-color: #F7F8E0;
   }
 `
 
