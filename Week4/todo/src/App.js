@@ -78,20 +78,21 @@ const DeleteBtn = styled.button`
 
 
 function App() {
-  
-  const [todo, setTodo] = useState("");
+
   const [todos, setTodos] = useState([]);
+  const [todo, setTodo] = useState("");
+  
 
   useEffect(() => {
-    const savedTodos = window.localStorage.getItem('todos');
+    const savedTodos = JSON.parse(localStorage.getItem('todos'));
     if (savedTodos) {
-      setTodos(JSON.parse(savedTodos));
+      setTodos(savedTodos);
     }
   }, []);
 
-  useEffect(() => {
-    window.localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+ /* useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);  왜 이걸로 하면 새로고침 했을 때 다 날아가는걸까요 ... */
 
   const onChange = event => {
     setTodo(event.target.value);
@@ -100,7 +101,9 @@ function App() {
   const addTodo = () => {
     if(todo === "")
       return;
-    setTodos([...todos, {id:uuid(), task: todo, completed: false}]);
+    const newTodos = [...todos, {id:uuid(), task: todo, completed: false}]
+    setTodos(newTodos);
+    localStorage.setItem('todos', JSON.stringify(newTodos));
     setTodo("");
   };
   
@@ -114,6 +117,7 @@ function App() {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
+    localStorage.setItem('todos', JSON.stringify(newTodos));
   };
 
   const toggleComplete = (id) => {
