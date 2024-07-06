@@ -1,13 +1,12 @@
 import { axiosInstance } from '../../api/index.js'
 import { useState } from 'react';
 
-export function PrintData() {
+export function ItemSerachAll() {
     const [value, setValue] = useState('');
 
     const GetData = async() => {
         const response = await axiosInstance.get('/items');
         const data = response.data;
-        console.log(data);
         setValue(data);
     };
 

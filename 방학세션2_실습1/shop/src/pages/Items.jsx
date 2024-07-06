@@ -1,9 +1,13 @@
 import React from 'react';
-import { PrintData } from '../components/items/ItemSearchAll.js';
+import { ItemSerachAll } from '../components/items/ItemSearchAll.js';
+import { ItemAdd } from '../components/items/ItemAdd.js';
 
 function Items() {
     return (
-        <PrintData/>
+        <>
+            <ItemSerachAll/>
+            <ItemAdd/>
+        </>
     );
 }
 
