@@ -10,10 +10,15 @@ const AddTitle = styled.div`
     padding-top: 10px;
     margin-bottom: 10px;
 `
-const AddNum = styled.input`
+const NumInput = styled.input`
     margin-left: 5px;
     margin-right: 20px;
     width: 60px;
+    height: 20px;
+`
+const IdInput = styled.input`
+    margin: 0px 5px;
+    width: 30px;
     height: 20px;
 `
 const AddBtn = styled.button`
@@ -52,15 +57,15 @@ export function OrderAdd() {
             <AddTitle>상품 주문</AddTitle>
             <label>
                 회원 ID : 
-                <AddNum type='number' value={memberId} onChange={(e) => setMemberId(e.target.value)}/>
+                <IdInput type='number' value={memberId} onChange={(e) => setMemberId(e.target.value)}/>
             </label>
             <label>
                 상품 ID :
-                <AddNum type='number' value={itemId} onChange={(e) => setItemId(e.target.value)}/>
+                <IdInput type='number' value={itemId} onChange={(e) => setItemId(e.target.value)}/>
             </label>
             <label>
                 상품 수량 :
-                <AddNum type='number' value={itemCount} onChange={(e) => setItemCount(e.target.value)}/>
+                <NumInput type='number' value={itemCount} onChange={(e) => setItemCount(e.target.value)}/>
             </label>
             <AddBtn onClick={addOrder}>추가</AddBtn>
             <AddBtn onClick={submit}>전체 주문</AddBtn>

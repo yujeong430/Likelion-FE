@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { OrderSearchMem } from './OrderSearchMem';
 import { OrderSearch } from './OrderSearch';
 import { OrderAdd } from './OrderAdd';
+import { OrderPatch } from './PatchOrder';
 
 const OrderBox = styled.div`
     margin: 20px;
@@ -13,6 +14,7 @@ export function OrderUI() {
             <OrderSearchMem/>
             <OrderSearch/>
             <OrderAdd/>
+            <OrderPatch/>
         </OrderBox>
     )
 }

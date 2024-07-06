@@ -52,7 +52,7 @@ export function OrderSearch() {
                     {orderData.items.map(item => (
                         <li key={item.item_id}>
                             <p>상품 ID : {item.item_id}</p>
-                            <p>상품 이름 : {item.item_name}</p>
+                            <p>상품명 : {item.item_name}</p>
                             <p>상품 가격 : {item.item_price}</p>
                             <p>상품 수량 : {item.count}</p>
                         </li>

@@ -10,10 +10,10 @@ const AddTitle = styled.div`
     padding-top: 10px;
     margin-bottom: 10px;
 `
-const AddText = styled.input`
+const TextInput = styled.input`
     margin-left: 5px;
     margin-right: 20px;
-    width: 150px;
+    width: 200px;
     height: 20px;
 `
 const AddBtn = styled.button`
@@ -44,19 +44,19 @@ export function MemberAdd() {
             <AddTitle>회원 등록</AddTitle>
             <label>
                 이름 : 
-                <AddText type='text' value={name} onChange={(e) => setName(e.target.value)}/>
+                <TextInput type='text' value={name} onChange={(e) => setName(e.target.value)}/>
             </label>
             <label>
                 도, 시, 구 : 
-                <AddText type='text' value={city} onChange={(e) => setCity(e.target.value)}/>
+                <TextInput type='text' value={city} onChange={(e) => setCity(e.target.value)}/>
             </label>
             <label>
                 도로명주소 : 
-                <AddText type='text' value={street} onChange={(e) => setStreet(e.target.value)}/>
+                <TextInput type='text' value={street} onChange={(e) => setStreet(e.target.value)}/>
             </label>
             <label>
                 우편번호 : 
-                <AddText type='text' value={zipcode} onChange={(e) => setZipcode(e.target.value)}/>
+                <TextInput type='text' value={zipcode} onChange={(e) => setZipcode(e.target.value)}/>
             </label>
             <AddBtn onClick={submit}>추가</AddBtn>
         </div>

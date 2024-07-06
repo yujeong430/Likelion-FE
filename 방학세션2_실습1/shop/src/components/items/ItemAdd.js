@@ -45,11 +45,11 @@ export function ItemAdd() {
         <div>
             <AddTitle>상품 등록</AddTitle>
             <label>
-                상품 이름 : 
+                상품명 : 
                 <AddName type='text' value={itemName} onChange={(e) => setItemName(e.target.value)}/>
             </label>
             <label>
-                상품 재고 : 
+                상품 수량 : 
                 <AddNum type='number' value={stockQuantity} onChange={(e) => setStockQuantity(e.target.value)}/>
             </label>
             <label>

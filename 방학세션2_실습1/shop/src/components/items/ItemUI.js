@@ -1,6 +1,8 @@
 import { ItemSerachAll } from './ItemSearchAll.js';
 import { ItemSearch } from './ItemSearch.js';
 import { ItemAdd } from './ItemAdd.js';
+import { ItemPatch } from './PatchItem.js';
+import { ItemDelete } from './DeleteItem.js';
 import styled from 'styled-components';
 
 const ItemBox = styled.div`
@@ -13,6 +15,8 @@ export function ItemUI() {
             <ItemSerachAll/>
             <ItemSearch/>
             <ItemAdd/>
+            <ItemPatch/>
+            <ItemDelete/>
         </ItemBox>
     )
 }
