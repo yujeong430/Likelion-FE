@@ -33,8 +33,8 @@ export function ItemAdd() {
     const submit = async () => {
         const itemData = {
             item_name: itemName,
-            stock_quantity: stockQuantity,
-            item_price: itemPrice
+            stock_quantity: parseInt(stockQuantity),
+            item_price: parseInt(itemPrice)
         };
 
         const response = await axiosInstance.post('/items', itemData);

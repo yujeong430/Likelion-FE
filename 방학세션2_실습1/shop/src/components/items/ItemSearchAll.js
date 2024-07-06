@@ -18,7 +18,7 @@ const SearchAllBtn = styled.button`
     border-radius: 10px;
 `
 export function ItemSerachAll() {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState([]);
 
     const fetchData = async() => {
         const response = await axiosInstance.get('/items');
@@ -30,7 +30,16 @@ export function ItemSerachAll() {
         <>
             <SearchAllTitle>전체 상품 조회</SearchAllTitle>
             <SearchAllBtn onClick={fetchData}>전체 상품 조회</SearchAllBtn>
-            <div>{value}</div>
+            <ul>
+                {value.map(item => (
+                    <li key={item.id}>
+                        <p><strong>상품 ID : </strong>{item.id}</p>
+                        <p><strong>상품 이름 : </strong>{item.item_name}</p>
+                        <p><strong>상품 수량 : </strong>{item.stock_quantity}</p>
+                        <p><strong>상품 가격 : </strong>{item.item_price}</p>
+                    </li>
+                ))}
+            </ul>
         </>
     )
 }

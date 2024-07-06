@@ -44,7 +44,7 @@ export function ItemSearch() {
             </label>
             {itemData && (
             <div>
-                <h2>Item Details</h2>
+                <h3>Item Details</h3>
                 <p><strong>ID : </strong> {itemData.id}</p>
                 <p><strong>상품명 : </strong> {itemData.item_name}</p>
                 <p><strong>재고 : </strong> {itemData.stock_quantity}</p>
