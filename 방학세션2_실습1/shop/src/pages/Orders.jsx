@@ -1,8 +1,9 @@
 import React from 'react';
+import { OrderUI } from '../components/orders/OrderUI';
 
 function Orders() {
     return (
-        <h1> hi </h1>
+        <OrderUI/>
     );
 }
 

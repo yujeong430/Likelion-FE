@@ -10,7 +10,7 @@ const MemberBox = styled.div`
 export function MemberUI() {
     return(
         <MemberBox>
-            <h1>Member👤</h1>
+            <h1>Members👤</h1>
             <MemberSerachAll/>
             <MemberSearch/>
             <MemberAdd/>

@@ -25,13 +25,13 @@ export function MemberSearch() {
     const [memberId, setMemberId] = useState(0);
     const [memberData, setMemberData] = useState(null);
 
-    const fetchItem = async(id) => {
+    const fetchMember = async(id) => {
         const response = await axiosInstance.get(`/members/${id}`);
         setMemberData(response.data);
     }
 
     const submit = () => {
-        fetchItem(memberId);
+        fetchMember(memberId);
     }
 
     return (
