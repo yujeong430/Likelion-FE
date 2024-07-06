@@ -17,19 +17,19 @@ const SearchAllBtn = styled.button`
     font-size: 15px;
     border-radius: 10px;
 `
-export function ItemSerachAll() {
+export function MemberSerachAll() {
     const [value, setValue] = useState('');
 
     const fetchData = async() => {
-        const response = await axiosInstance.get('/items');
+        const response = await axiosInstance.get('/members');
         const data = response.data;
         setValue(data);
     };
 
     return (
         <>
-            <SearchAllTitle>전체 상품 조회</SearchAllTitle>
-            <SearchAllBtn onClick={fetchData}>전체 상품 조회</SearchAllBtn>
+            <SearchAllTitle>전체 회원 조회</SearchAllTitle>
+            <SearchAllBtn onClick={fetchData}>전체 회원 조회</SearchAllBtn>
             <div>{value}</div>
         </>
     )

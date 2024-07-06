@@ -1,8 +1,8 @@
-import React from 'react';
+import { MemberUI } from "../components/members/MemberUI";
 
 function Members() {
     return (
-        <h1> hi </h1>
+        <MemberUI/>
     );
 }
 

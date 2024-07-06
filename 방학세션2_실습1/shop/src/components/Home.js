@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 const Title = styled.h1`
-    background-color: #DCFFDC;
+    background-color: #E6E6E6;
     text-align: center;
     margin-bottom: 60px;
 `;
@@ -24,12 +24,14 @@ const MenuChoice = styled.div`
     width: 250px;
     height: 100px;
     font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
 `
 function HomeUI() {
     const navigate = useNavigate();
     return(
         <>
-            <Title> Shopping Mall </Title>
+            <Title>Shopping Mall</Title>
             <MenuBox>
                 <MenuChoice onClick={() => navigate("/items")}> Items </MenuChoice>
                 <MenuChoice onClick={() => navigate("/members")}> Members </MenuChoice>

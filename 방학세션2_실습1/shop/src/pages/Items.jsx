@@ -1,13 +1,9 @@
 import React from 'react';
-import { ItemSerachAll } from '../components/items/ItemSearchAll.js';
-import { ItemAdd } from '../components/items/ItemAdd.js';
+import { ItemUI } from '../components/items/ItemUI';
 
 function Items() {
     return (
-        <>
-            <ItemSerachAll/>
-            <ItemAdd/>
-        </>
+        <ItemUI/>
     );
 }
 
