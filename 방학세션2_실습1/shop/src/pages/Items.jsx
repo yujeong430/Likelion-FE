@@ -1,9 +1,9 @@
 import React from 'react';
-import { GetData } from '../components/items/ItemSearch.js';
+import { PrintData } from '../components/items/ItemSearchAll.js';
 
 function Items() {
     return (
-        <GetData/>
+        <PrintData/>
     );
 }
 

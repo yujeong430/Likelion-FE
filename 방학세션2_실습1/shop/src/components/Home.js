@@ -17,12 +17,12 @@ const MenuBox = styled.div`
 `
 const MenuChoice = styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid grey;
     border-radius: 15px;
     width: 250px;
     height: 100px;
-    justify-content: center;
-    align-items: center;
     font-size: 20px;
 `
 function HomeUI() {
