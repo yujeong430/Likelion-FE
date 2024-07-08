@@ -75,7 +75,7 @@ export function ItemPatch() {
             <Title>상품 정보 수정</Title>
             <PatchBox>
             <label>
-                수정할 상품 ID : 
+                상품 ID : 
                 <IdInput type='number' value={itemId} onChange={(e) => setId(e.target.value)}/>
             </label>
             <div>

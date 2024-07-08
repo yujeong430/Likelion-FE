@@ -25,6 +25,24 @@ const AddBtn = styled.button`
     height: 30px;
     margin-right: 10px;
 `
+const Table = styled.table`
+    width: 60%;
+    border-collapse: collapse;
+    margin-top: 20px;
+`
+
+const Th = styled.th`
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2;
+`
+
+const Td = styled.td`
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+`
 
 export function OrderAdd() {
     const [memberId, setMemberId] = useState(0);
@@ -81,15 +99,26 @@ export function OrderAdd() {
             </label>
             <AddBtn onClick={addOrder}>장바구니 추가</AddBtn>
             <AddBtn onClick={submit}>전체 주문</AddBtn>
-            {(items.length>0) && (
-                <ul>
-                    <p>🛒장바구니</p>
-                    {items.map((item, index) => (
-                        <li key={index}>
-                            상품 ID: {item.itemId}, 수량: {item.orderQuantity}
-                        </li>
-                    ))}
-                </ul>
+            {(items.length > 0) && (
+                <div>
+                    <p>🛒 장바구니</p>
+                    <Table>
+                        <thead>
+                            <tr>
+                                <Th>상품 ID</Th>
+                                <Th>수량</Th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {items.map((item, index) => (
+                                <tr key={index}>
+                                    <Td>{item.itemId}</Td>
+                                    <Td>{item.orderQuantity}</Td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
+                </div>
             )}  
         </div>
     )
