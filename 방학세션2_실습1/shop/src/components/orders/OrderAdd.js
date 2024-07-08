@@ -38,7 +38,7 @@ export function OrderAdd() {
             items: items
         };
 
-        const response = await axiosInstance.post('/members', orderData);
+        const response = await axiosInstance.post('/members/', orderData);
         console.log(orderData);
         console.log(response.data);
     };

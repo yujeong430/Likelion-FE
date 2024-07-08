@@ -35,7 +35,7 @@ export function MemberAdd() {
             }
         };
 
-        const response = await axiosInstance.post('/members', memberData);
+        const response = await axiosInstance.post('/members/', memberData);
         console.log(response.data);
     };
 

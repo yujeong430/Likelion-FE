@@ -21,11 +21,11 @@ const IdBtn = styled.button`
     height: 30px;
 `
 
-export function OrderPatch() {
+export function OrderCancle() {
     const [orderId, setOrderId] = useState(0);
 
     const patchData = async(id) => {
-        const response = await axiosInstance.patch(`/orders/${id}`, {status: "주문 취소"});
+        const response = await axiosInstance.get(`/orders/${id}/cancel/`);
         console.log(response.data);
     }
 

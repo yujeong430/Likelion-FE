@@ -21,23 +21,23 @@ const IdBtn = styled.button`
     height: 30px;
 `
 
-export function ItemDelete() {
-    const [itemId, setItemId] = useState(0);
+export function OrderDelete() {
+    const [orderId, setOrderId] = useState(0);
 
     const deleteData = async(id) => {
-        await axiosInstance.delete(`/items/${id}/`);
+        await axiosInstance.delete(`/orders/${id}/`);
     }
 
     const submit = () => {
-        deleteData(itemId);
+        deleteData(orderId);
     }
 
     return (
         <div>
-            <Title>물품 삭제</Title>
+            <Title>주문 내역 단건 삭제</Title>
             <label>
-                물품 ID :  
-                <IdInput type='number' value={itemId} onChange={(e) => setItemId(e.target.value)}/>
+                주문 ID :  
+                <IdInput type='number' value={orderId} onChange={(e) => setOrderId(e.target.value)}/>
                 <IdBtn onClick={submit}>삭제</IdBtn>
             </label>
         </div>

@@ -25,7 +25,7 @@ export function OrderSearch() {
     const [orderData, setOrderData] = useState(null);
 
     const fetchOrder = async(id) => {
-        const response = await axiosInstance.get(`/orders/${id}`);
+        const response = await axiosInstance.get(`/orders/${id}/`);
         setOrderData(response.data);
     }
 

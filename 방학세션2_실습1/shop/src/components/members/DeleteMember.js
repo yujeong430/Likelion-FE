@@ -25,7 +25,7 @@ export function MemberDelete() {
     const [memberId, setMemberId] = useState(0);
 
     const deleteData = async(id) => {
-        await axiosInstance.delete(`/members/${id}`);
+        await axiosInstance.delete(`/members/${id}/`);
     }
 
     const submit = () => {

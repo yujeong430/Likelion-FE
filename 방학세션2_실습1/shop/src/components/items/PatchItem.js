@@ -48,7 +48,7 @@ export function ItemPatch() {
             item_price: itemPrice
         };
 
-        const response = await axiosInstance.patch(`/items/${id}`, itemData);
+        const response = await axiosInstance.patch(`/items/${id}/`, itemData);
         console.log(response.data);
     };
 

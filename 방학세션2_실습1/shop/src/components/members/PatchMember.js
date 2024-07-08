@@ -45,7 +45,7 @@ export function MemberPatch() {
             }
         };
 
-        const response = await axiosInstance.patch(`/members/${id}`, memberData);
+        const response = await axiosInstance.patch(`/members/${id}/`, memberData);
         console.log(response.data);
     };
 

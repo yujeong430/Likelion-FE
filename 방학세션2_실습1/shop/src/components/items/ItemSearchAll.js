@@ -21,7 +21,7 @@ export function ItemSerachAll() {
     const [value, setValue] = useState([]);
 
     const fetchData = async() => {
-        const response = await axiosInstance.get('/items');
+        const response = await axiosInstance.get('/items/');
         const data = response.data;
         setValue(data);
     };

@@ -21,10 +21,11 @@ export function MemberSerachAll() {
     const [value, setValue] = useState([]);
 
     const fetchData = async() => {
-        const response = await axiosInstance.get('/members');
+        const response = await axiosInstance.get('/members/');
         const data = response.data;
         setValue(data);
     };
+
 
     return (
         <>

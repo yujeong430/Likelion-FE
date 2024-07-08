@@ -26,7 +26,7 @@ export function ItemSearch() {
     const [itemData, setItemData] = useState(null);
 
     const fetchItem = async(id) => {
-        const response = await axiosInstance.get(`/items/${id}`);
+        const response = await axiosInstance.get(`/items/${id}/`);
         setItemData(response.data);
     }
 

@@ -37,7 +37,7 @@ export function ItemAdd() {
             item_price: parseInt(itemPrice)
         };
 
-        const response = await axiosInstance.post('/items', itemData);
+        const response = await axiosInstance.post('/items/', itemData);
         console.log(response.data);
     };
 

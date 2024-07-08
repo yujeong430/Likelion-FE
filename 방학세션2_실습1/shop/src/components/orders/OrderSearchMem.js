@@ -25,7 +25,7 @@ export function OrderSearchMem() {
     const [orderData, setOrderData] = useState(null);
 
     const fetchOrder = async() => {
-        const response = await axiosInstance.get('/orders', {
+        const response = await axiosInstance.get('/orders/', {
             params: {member_id: memberId}
         });
         setOrderData(response.data);

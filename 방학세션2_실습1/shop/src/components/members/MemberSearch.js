@@ -26,7 +26,7 @@ export function MemberSearch() {
     const [memberData, setMemberData] = useState(null);
 
     const fetchMember = async(id) => {
-        const response = await axiosInstance.get(`/members/${id}`);
+        const response = await axiosInstance.get(`/members/${id}/`);
         setMemberData(response.data);
     }
 
