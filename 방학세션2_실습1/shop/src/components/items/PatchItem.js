@@ -47,13 +47,23 @@ export function ItemPatch() {
             stock_quantity: stockQuantity,
             item_price: itemPrice
         };
-
-        const response = await axiosInstance.patch(`/items/${id}/`, itemData);
-        console.log(response.data);
-        setId(0);
-        setName('');
-        setStockQuantity(0);
-        setPrice(0);
+        try {
+            const response = await axiosInstance.patch(`/items/${id}/`, itemData);
+            console.log(response.data);
+            setId(0);
+            setName('');
+            setStockQuantity(0);
+            setPrice(0);
+            alert('수정되었습니다.');
+        } catch(e) {
+            if (e.response && e.response.status === 400) {
+                alert('요청 양식을 확인해주세요.');
+            } else if (e.response && e.response.status === 404){
+                alert('존재하지 않는 상품입니다.');
+            } else {
+                console.error(e);
+            }
+        }
     };
 
     const submit = () => {

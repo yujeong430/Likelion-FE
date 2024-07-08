@@ -26,8 +26,18 @@ export function MemberSearch() {
     const [memberData, setMemberData] = useState(null);
 
     const fetchMember = async(id) => {
-        const response = await axiosInstance.get(`/members/${id}/`);
-        setMemberData(response.data);
+        try {
+            const response = await axiosInstance.get(`/members/${id}/`);
+            setMemberData(response.data);
+        } catch (e) {
+            if (e.response && e.response.status === 404) {
+                alert('존재하지 않는 회원입니다.');
+            } else if (e.response && e.response.status === 400) {
+                alert('요청 양식을 확인해주세요.');
+            } else {
+                console.error(e);
+            }
+        }
     }
 
     const submit = () => {
@@ -44,10 +54,12 @@ export function MemberSearch() {
             </label>
             {memberData && (
             <div>
-                <h2>Member Details</h2>
-                <p><strong>ID : </strong> {memberData.id}</p>
+                <h3>회원 정보</h3>
+                <p><strong>회원 ID : </strong> {memberData.id}</p>
                 <p><strong>이름 : </strong> {memberData.name}</p>
-                <p><strong>주소 : </strong> {memberData.address.city} {memberData.address.street} {memberData.address.zipcode}</p>
+                <p><strong>주소 : </strong> {memberData.address.city}</p>
+                <p><strong>도로명 주소 : </strong>{memberData.address.street}</p>
+                <p><strong>우편번호 : </strong> {memberData.address.zipcode}</p>
             </div>
             )}
         </div>

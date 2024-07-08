@@ -25,7 +25,17 @@ export function OrderDelete() {
     const [orderId, setOrderId] = useState(0);
 
     const deleteData = async(id) => {
-        await axiosInstance.delete(`/orders/${id}/`);
+        try {
+            await axiosInstance.delete(`/orders/${id}/`);
+            setOrderId(0);
+            alert('삭제되었습니다.')
+        } catch(e) {
+            if (e.response && e.response.status === 404) {
+                alert('존재하지 않는 주문입니다.');
+            } else {
+                console.error(e);
+            }
+        }
     }
 
     const submit = () => {

@@ -36,9 +36,20 @@ export function ItemAdd() {
             stock_quantity: parseInt(stockQuantity),
             item_price: parseInt(itemPrice)
         };
-
-        const response = await axiosInstance.post('/items/', itemData);
-        console.log(response.data);
+        try {
+            const response = await axiosInstance.post('/items/', itemData);
+            console.log(response.data);
+            setItemName('');
+            setStockQuantity(0);
+            setItemPrice(0);
+            alert('등록되었습니다.')
+        } catch (e) {
+            if (e.response && e.response.status === 400) {
+                alert('요청 양식을 확인해주세요.')
+            } else {
+                console.error(e);
+            }
+        }
     };
 
     return (

@@ -37,10 +37,19 @@ export function OrderAdd() {
             memberId : memberId,
             items: items
         };
-
-        const response = await axiosInstance.post('/orders/', orderData);
-        console.log(orderData);
-        console.log(response.data);
+        try {
+            const response = await axiosInstance.post('/orders/', orderData);
+            console.log(orderData);
+            console.log(response.data);
+            setMemberId(0);
+            alert('주문 완료되었습니다.')
+        } catch (e) {
+            if (e.response && e.response.status === 400) {
+                alert('요청 양식을 확인해주세요.');
+            } else {
+                console.error(e);
+            }
+        }
     };
 
     const addOrder = () => {

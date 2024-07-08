@@ -44,13 +44,24 @@ export function MemberPatch() {
                 zipcode: zipcode
             }
         };
-
-        const response = await axiosInstance.patch(`/members/${id}/`, memberData);
-        console.log(response.data);
-        setName('');
-        setCity('');
-        setStreet('');
-        setZipcode('');
+        try {
+            const response = await axiosInstance.patch(`/members/${id}/`, memberData);
+            console.log(response.data);
+            setName('');
+            setCity('');
+            setStreet('');
+            setZipcode('');
+            setId(0);
+            alert('수정되었습니다.');
+        } catch (e) {
+            if (e.response && e.response.status === 400) {
+                alert('요청 양식을 확인해주세요.');
+            } else if (e.response && e.response.status === 404) {
+                alert('존재하지 않는 회원입니다.');
+            } else {
+                console.error(e);
+            }
+        }
     };
 
     const submit = () => {
@@ -62,7 +73,7 @@ export function MemberPatch() {
             <Title>회원 정보 수정</Title>
             <PatchBox>
             <label>
-                수정할 회원 ID : 
+                회원 ID : 
                 <IdInput type='number' value={memberId} onChange={(e) => setId(e.target.value)}/>
             </label>
             <div>

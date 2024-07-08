@@ -25,8 +25,18 @@ export function OrderCancle() {
     const [orderId, setOrderId] = useState(0);
 
     const patchData = async(id) => {
-        const response = await axiosInstance.get(`/orders/${id}/cancel/`);
-        console.log(response.data);
+        try {
+            const response = await axiosInstance.get(`/orders/${id}/cancel/`);
+            console.log(response.data);
+            setOrderId(0);
+            alert('주문 취소되었습니다.')
+        } catch(e) {
+            if (e.response && e.response.status === 404) {
+                alert('존재하지 않는 주문입니다.');
+            } else {
+                console.error(e);
+            }
+        }
     }
 
     const submit = () => {

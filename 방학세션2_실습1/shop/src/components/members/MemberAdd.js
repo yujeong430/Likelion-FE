@@ -34,13 +34,24 @@ export function MemberAdd() {
                 zipcode: zipcode
             }
         };
-
-        const response = await axiosInstance.post('/members/', memberData);
-        console.log(response.data);
-        setName('');
-        setCity('');
-        setStreet('');
-        setZipcode('');
+        
+        try {
+            const response = await axiosInstance.post('/members/', memberData);
+            console.log(response);
+            setName('');
+            setCity('');
+            setStreet('');
+            setZipcode('');
+            alert('등록되었습니다.')
+        } catch (e) {
+            if (e.response && e.response.status === 400) {
+                alert('요청 양식을 확인해주세요.');
+            } else if (e.response && e.response.status === 409) {
+                alert('이미 존재하는 회원입니다.')
+            } else {
+                console.error(e);
+            }
+        }
     };
 
     return (

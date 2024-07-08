@@ -25,8 +25,17 @@ export function OrderSearch() {
     const [orderData, setOrderData] = useState(null);
 
     const fetchOrder = async(id) => {
-        const response = await axiosInstance.get(`/orders/${id}/`);
-        setOrderData(response.data);
+        try {
+            const response = await axiosInstance.get(`/orders/${id}/`);
+            setOrderData(response.data);
+            setOrderId(0);
+        } catch(e) {
+            if (e.response && e.response.status === 404) {
+                alert('존재하지 않는 주문입니다.');
+            } else {
+                console.error(e);
+            }
+        }
     }
 
     const submit = () => {
@@ -43,7 +52,7 @@ export function OrderSearch() {
             </label>
             {orderData && (
             <div>
-                <h3>Order Details</h3>
+                <h3>주문 내역</h3>
                 <p>주문 ID : {orderData.id}</p>
                 <p>회원 ID : {orderData.member}</p>
                 <p>주문 날짜 : {orderData.order_date}</p>

@@ -26,8 +26,16 @@ export function ItemSearch() {
     const [itemData, setItemData] = useState(null);
 
     const fetchItem = async(id) => {
-        const response = await axiosInstance.get(`/items/${id}/`);
-        setItemData(response.data);
+        try {
+            const response = await axiosInstance.get(`/items/${id}/`);
+            setItemData(response.data);
+        } catch(e) {
+            if (e.response && e.response.status === 404) {
+                alert('존재하지 않는 상품입니다.')
+            } else {
+                console.error(e);
+            }
+        }
     }
 
     const submit = () => {

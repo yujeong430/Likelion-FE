@@ -45,7 +45,7 @@ export function OrderSearchMem() {
             </label>
             {orderData && (
             <div>
-                <h3>Order Details</h3>
+                <h3>주문 내역</h3>
                 {orderData.orders.map(information => (
                     <div key={information.id}>
                         <p>주문 ID : {information.id}</p>
