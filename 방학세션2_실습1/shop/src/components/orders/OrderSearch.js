@@ -44,17 +44,18 @@ export function OrderSearch() {
             {orderData && (
             <div>
                 <h3>Order Details</h3>
-                <p>주문 ID : {orderData.order_id}</p>
+                <p>주문 ID : {orderData.id}</p>
+                <p>회원 ID : {orderData.member}</p>
                 <p>주문 날짜 : {orderData.order_date}</p>
                 <p>주문 상태: {orderData.status}</p>
                 <p>상품 목록</p>
                 <ul>
                     {orderData.items.map(item => (
-                        <li key={item.item_id}>
-                            <p>상품 ID : {item.item_id}</p>
-                            <p>상품명 : {item.item_name}</p>
-                            <p>상품 가격 : {item.item_price}</p>
-                            <p>상품 수량 : {item.count}</p>
+                        <li key={item.itemId}>
+                            <p>상품 ID : {item.itemId}</p>
+                            <p>상품명 : {item.itemName}</p>
+                            <p>상품 가격 : {item.itemPrice}</p>
+                            <p>상품 수량 : {item.orderQuantity}</p>
                         </li>
                     ))}
                 </ul>

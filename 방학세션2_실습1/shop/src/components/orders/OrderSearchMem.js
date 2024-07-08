@@ -46,19 +46,19 @@ export function OrderSearchMem() {
             {orderData && (
             <div>
                 <h3>Order Details</h3>
-                {orderData.order.map(information => (
-                    <div key={information.order_id}>
-                        <p>주문 ID : {information.order_id}</p>
+                {orderData.orders.map(information => (
+                    <div key={information.id}>
+                        <p>주문 ID : {information.id}</p>
                         <p>주문 날짜 : {information.order_date}</p>
-                        <p>주문 상태: {information.status}</p>
+                        <p>주문 상태 : {information.status} </p>
                         <p>상품 목록</p>
                         <ul>
                             {information.items.map(item => (
-                                <li key={item.item_id}>
-                                    <p>상품 ID : {item.item_id}</p>
-                                    <p>상품 이름 : {item.item_name}</p>
-                                    <p>상품 가격 : {item.item_price}</p>
-                                    <p>상품 수량 : {item.count}</p>
+                                <li key={item.itemId}>
+                                    <p>상품 ID : {item.itemId}</p>
+                                    <p>상품 이름 : {item.itemName}</p>
+                                    <p>상품 가격 : {item.itemPrice}</p>
+                                    <p>상품 수량 : {item.orderQuantity}</p>
                                 </li>
                             ))}
                         </ul>

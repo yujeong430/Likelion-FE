@@ -47,6 +47,10 @@ export function MemberPatch() {
 
         const response = await axiosInstance.patch(`/members/${id}/`, memberData);
         console.log(response.data);
+        setName('');
+        setCity('');
+        setStreet('');
+        setZipcode('');
     };
 
     const submit = () => {

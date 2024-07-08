@@ -37,6 +37,10 @@ export function MemberAdd() {
 
         const response = await axiosInstance.post('/members/', memberData);
         console.log(response.data);
+        setName('');
+        setCity('');
+        setStreet('');
+        setZipcode('');
     };
 
     return (

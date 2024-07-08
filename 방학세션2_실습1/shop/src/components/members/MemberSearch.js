@@ -47,7 +47,7 @@ export function MemberSearch() {
                 <h2>Member Details</h2>
                 <p><strong>ID : </strong> {memberData.id}</p>
                 <p><strong>이름 : </strong> {memberData.name}</p>
-                <p><strong>주소 : </strong> {memberData.address}</p>
+                <p><strong>주소 : </strong> {memberData.address.city} {memberData.address.street} {memberData.address.zipcode}</p>
             </div>
             )}
         </div>

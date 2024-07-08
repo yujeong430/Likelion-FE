@@ -34,17 +34,17 @@ export function OrderAdd() {
 
     const submit = async () => {
         const orderData = {
-            member_id : memberId,
+            memberId : memberId,
             items: items
         };
 
-        const response = await axiosInstance.post('/members/', orderData);
+        const response = await axiosInstance.post('/orders/', orderData);
         console.log(orderData);
         console.log(response.data);
     };
 
     const addOrder = () => {
-        const newItem = { item_id: parseInt(itemId), count: parseInt(itemCount) };
+        const newItem = { itemId: parseInt(itemId), orderQuantity: parseInt(itemCount) };
         const newItems = [...items, newItem];
         setItems(newItems);
         setItemId(0);
@@ -67,7 +67,7 @@ export function OrderAdd() {
                 상품 수량 :
                 <NumInput type='number' value={itemCount} onChange={(e) => setItemCount(e.target.value)}/>
             </label>
-            <AddBtn onClick={addOrder}>추가</AddBtn>
+            <AddBtn onClick={addOrder}>장바구니 추가</AddBtn>
             <AddBtn onClick={submit}>전체 주문</AddBtn>
         </div>
     )

@@ -50,6 +50,10 @@ export function ItemPatch() {
 
         const response = await axiosInstance.patch(`/items/${id}/`, itemData);
         console.log(response.data);
+        setId(0);
+        setName('');
+        setStockQuantity(0);
+        setPrice(0);
     };
 
     const submit = () => {
