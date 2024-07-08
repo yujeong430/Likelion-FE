@@ -19,6 +19,24 @@ const IdInput = styled.input`
 const IdBtn = styled.button`
     height: 30px;
 `
+const Table = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+`
+
+const Th = styled.th`
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2;
+`
+
+const Td = styled.td`
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+`
 
 export function OrderSearch() {
     const [orderId, setOrderId] = useState(0);
@@ -53,21 +71,45 @@ export function OrderSearch() {
             {orderData && (
             <div>
                 <h3>주문 내역</h3>
-                <p>주문 ID : {orderData.id}</p>
-                <p>회원 ID : {orderData.member}</p>
-                <p>주문 날짜 : {orderData.order_date}</p>
-                <p>주문 상태: {orderData.status}</p>
-                <p>상품 목록</p>
-                <ul>
-                    {orderData.items.map(item => (
-                        <li key={item.itemId}>
-                            <p>상품 ID : {item.itemId}</p>
-                            <p>상품명 : {item.itemName}</p>
-                            <p>상품 가격 : {item.itemPrice}</p>
-                            <p>상품 수량 : {item.orderQuantity}</p>
-                        </li>
-                    ))}
-                </ul>
+                <Table>
+                    <thead>
+                        <tr>
+                            <Th>주문 ID</Th>
+                            <Th>회원 ID</Th>
+                            <Th>주문 날짜</Th>
+                            <Th>주문 상태</Th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <Td>{orderData.id}</Td>
+                            <Td>{orderData.member}</Td>
+                            <Td>{orderData.order_date}</Td>
+                            <Td>{orderData.status}</Td>
+                        </tr>
+                    </tbody>
+                </Table>
+                <h4>상품 목록</h4>
+                <Table>
+                    <thead>
+                        <tr>
+                            <Th>상품 ID</Th>
+                            <Th>상품명</Th>
+                            <Th>상품 가격</Th>
+                            <Th>상품 수량</Th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orderData.items.map(item => (
+                            <tr key={item.itemId}>
+                                <Td>{item.itemId}</Td>
+                                <Td>{item.itemName}</Td>
+                                <Td>{item.itemPrice}</Td>
+                                <Td>{item.orderQuantity}</Td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
             </div>
             )}
         </div>

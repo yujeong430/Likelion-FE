@@ -42,12 +42,15 @@ export function OrderAdd() {
             console.log(orderData);
             console.log(response.data);
             setMemberId(0);
+            setItems([]);
             alert('주문 완료되었습니다.')
         } catch (e) {
             if (e.response && e.response.status === 400) {
                 alert('요청 양식을 확인해주세요.');
+                setItems([]);
             } else {
                 console.error(e);
+                setItems([]);
             }
         }
     };
@@ -78,6 +81,16 @@ export function OrderAdd() {
             </label>
             <AddBtn onClick={addOrder}>장바구니 추가</AddBtn>
             <AddBtn onClick={submit}>전체 주문</AddBtn>
+            {(items.length>0) && (
+                <ul>
+                    <p>🛒장바구니</p>
+                    {items.map((item, index) => (
+                        <li key={index}>
+                            상품 ID: {item.itemId}, 수량: {item.orderQuantity}
+                        </li>
+                    ))}
+                </ul>
+            )}  
         </div>
     )
 }

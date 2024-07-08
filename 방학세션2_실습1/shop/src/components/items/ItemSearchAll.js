@@ -17,6 +17,25 @@ const SearchAllBtn = styled.button`
     font-size: 15px;
     border-radius: 10px;
 `
+const Table = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+`
+
+const Th = styled.th`
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2;
+`
+
+const Td = styled.td`
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+`
+
 export function ItemSerachAll() {
     const [value, setValue] = useState([]);
 
@@ -30,16 +49,28 @@ export function ItemSerachAll() {
         <>
             <SearchAllTitle>전체 상품 조회</SearchAllTitle>
             <SearchAllBtn onClick={fetchData}>전체 상품 조회</SearchAllBtn>
-            <ul>
-                {value.map(item => (
-                    <li key={item.id}>
-                        <p><strong>상품 ID : </strong>{item.id}</p>
-                        <p><strong>상품 이름 : </strong>{item.item_name}</p>
-                        <p><strong>상품 수량 : </strong>{item.stock_quantity}</p>
-                        <p><strong>상품 가격 : </strong>{item.item_price}</p>
-                    </li>
-                ))}
-            </ul>
+            {value.length > 0 && (
+                <Table>
+                    <thead>
+                        <tr>
+                            <Th>상품 ID</Th>
+                            <Th>상품 이름</Th>
+                            <Th>상품 수량</Th>
+                            <Th>상품 가격</Th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {value.map(item => (
+                            <tr key={item.id}>
+                                <Td>{item.id}</Td>
+                                <Td>{item.item_name}</Td>
+                                <Td>{item.stock_quantity}</Td>
+                                <Td>{item.item_price}</Td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            )}
         </>
     )
 }

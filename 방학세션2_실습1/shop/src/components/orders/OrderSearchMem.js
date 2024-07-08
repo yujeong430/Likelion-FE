@@ -20,15 +20,49 @@ const IdBtn = styled.button`
     height: 30px;
 `
 
+const Table = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+`
+
+const Th = styled.th`
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2;
+`
+
+const Td = styled.td`
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+`
+const DetailText = styled.div`
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 7px;
+    margin-bottom: 3px;
+`
+
 export function OrderSearchMem() {
     const [memberId, setMemberId] = useState(0);
     const [orderData, setOrderData] = useState(null);
 
     const fetchOrder = async() => {
-        const response = await axiosInstance.get('/orders/', {
-            params: {member_id: memberId}
-        });
-        setOrderData(response.data);
+        try {
+            const response = await axiosInstance.get('/orders/', {
+                params: {member_id: memberId}
+            });
+            setOrderData(response.data);
+            setMemberId(0);
+        } catch(e) {
+            if (e.response && e.response.status === 404) {
+                alert('존재하지 않는 회원입니다.');
+            } else {
+                console.error(e);
+            }
+        }
     }
 
     const submit = () => {
@@ -48,20 +82,35 @@ export function OrderSearchMem() {
                 <h3>주문 내역</h3>
                 {orderData.orders.map(information => (
                     <div key={information.id}>
-                        <p>주문 ID : {information.id}</p>
-                        <p>주문 날짜 : {information.order_date}</p>
-                        <p>주문 상태 : {information.status} </p>
-                        <p>상품 목록</p>
-                        <ul>
-                            {information.items.map(item => (
-                                <li key={item.itemId}>
-                                    <p>상품 ID : {item.itemId}</p>
-                                    <p>상품 이름 : {item.itemName}</p>
-                                    <p>상품 가격 : {item.itemPrice}</p>
-                                    <p>상품 수량 : {item.orderQuantity}</p>
-                                </li>
-                            ))}
-                        </ul>
+                        <DetailText>주문 ID: {information.id}</DetailText>
+                        <Table>
+                            <thead>
+                                <tr>
+                                    <Th>주문 날짜</Th>
+                                    <Th>주문 상태</Th>
+                                    <Th>상품 ID</Th>
+                                    <Th>상품 이름</Th>
+                                    <Th>상품 가격</Th>
+                                    <Th>상품 수량</Th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {information.items.map(item => (
+                                    <tr key={item.itemId}>
+                                        {item === information.items[0] && (
+                                            <>
+                                                <Td rowSpan={information.items.length}>{information.order_date}</Td>
+                                                <Td rowSpan={information.items.length}>{information.status}</Td>
+                                            </>
+                                        )}
+                                        <Td>{item.itemId}</Td>
+                                        <Td>{item.itemName}</Td>
+                                        <Td>{item.itemPrice}</Td>
+                                        <Td>{item.orderQuantity}</Td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
                     </div>
                 ))}
             </div>

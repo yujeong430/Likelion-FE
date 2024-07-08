@@ -20,6 +20,20 @@ const IdInput = styled.input`
 const IdBtn = styled.button`
     height: 30px;
 `
+const DetailBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid grey;
+`
+
+const DetailText = styled.div`
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 7px;
+`
 
 export function MemberSearch() {
     const [memberId, setMemberId] = useState(0);
@@ -53,14 +67,14 @@ export function MemberSearch() {
                 <IdBtn onClick={submit}>조회</IdBtn>
             </label>
             {memberData && (
-            <div>
-                <h3>회원 정보</h3>
-                <p><strong>회원 ID : </strong> {memberData.id}</p>
-                <p><strong>이름 : </strong> {memberData.name}</p>
-                <p><strong>주소 : </strong> {memberData.address.city}</p>
-                <p><strong>도로명 주소 : </strong>{memberData.address.street}</p>
-                <p><strong>우편번호 : </strong> {memberData.address.zipcode}</p>
-            </div>
+            <DetailBox>
+                <DetailText>회원 정보</DetailText>
+                <div><strong>회원 ID : </strong> {memberData.id}</div>
+                <div><strong>이름 : </strong> {memberData.name}</div>
+                <div><strong>주소 : </strong> {memberData.address.city}</div>
+                <div><strong>도로명 주소 : </strong>{memberData.address.street}</div>
+                <div><strong>우편번호 : </strong> {memberData.address.zipcode}</div>
+            </DetailBox>
             )}
         </div>
     )

@@ -21,6 +21,21 @@ const IdBtn = styled.button`
     height: 30px;
 `
 
+const DetailBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid grey;
+`
+
+const DetailText = styled.div`
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 7px;
+`
+
 export function ItemSearch() {
     const [itemId, setItemId] = useState(0);
     const [itemData, setItemData] = useState(null);
@@ -51,13 +66,13 @@ export function ItemSearch() {
                 <IdBtn onClick={submit}>조회</IdBtn>
             </label>
             {itemData && (
-            <div>
-                <h3>Item Details</h3>
-                <p><strong>ID : </strong> {itemData.id}</p>
-                <p><strong>상품명 : </strong> {itemData.item_name}</p>
-                <p><strong>재고 : </strong> {itemData.stock_quantity}</p>
-                <p><strong>가격 : </strong> {itemData.item_price}</p>
-            </div>
+            <DetailBox>
+                <DetailText>상품 상세정보</DetailText>
+                <div><strong>ID : </strong> {itemData.id}</div>
+                <div><strong>상품명 : </strong> {itemData.item_name}</div>
+                <div><strong>재고 : </strong> {itemData.stock_quantity}</div>
+                <div><strong>가격 : </strong> {itemData.item_price}</div>
+            </DetailBox>
             )}
         </div>
     )

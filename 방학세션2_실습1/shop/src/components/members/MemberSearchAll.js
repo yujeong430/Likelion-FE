@@ -17,6 +17,25 @@ const SearchAllBtn = styled.button`
     font-size: 15px;
     border-radius: 10px;
 `
+const Table = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+`
+
+const Th = styled.th`
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2;
+`
+
+const Td = styled.td`
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+`
+
 export function MemberSerachAll() {
     const [value, setValue] = useState([]);
 
@@ -31,17 +50,30 @@ export function MemberSerachAll() {
         <>
             <SearchAllTitle>전체 회원 조회</SearchAllTitle>
             <SearchAllBtn onClick={fetchData}>전체 회원 조회</SearchAllBtn>
-            <ul>
-                {value.map(mem => (
-                    <li key={mem.id}>
-                        <p><strong>회원 ID : </strong>{mem.id}</p>
-                        <p><strong>이름 : </strong>{mem.name}</p>
-                        <p><strong>주소 : </strong>{mem.address.city}</p>
-                        <p><strong>도로명주소 : </strong>{mem.address.street}</p>
-                        <p><strong>우편번호 : </strong>{mem.address.zipcode}</p>
-                    </li>
-                ))}
-            </ul>
+            {value.length > 0 && (
+                <Table>
+                    <thead>
+                        <tr>
+                            <Th>회원 ID</Th>
+                            <Th>이름</Th>
+                            <Th>주소</Th>
+                            <Th>도로명주소</Th>
+                            <Th>우편번호</Th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {value.map(mem => (
+                            <tr key={mem.id}>
+                                <Td>{mem.id}</Td>
+                                <Td>{mem.name}</Td>
+                                <Td>{mem.address.city}</Td>
+                                <Td>{mem.address.street}</Td>
+                                <Td>{mem.address.zipcode}</Td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            )}
         </>
     )
 }
